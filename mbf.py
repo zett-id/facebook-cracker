@@ -84,7 +84,7 @@ def login(username,password,cek=False):
                 die += 1
         for i in list('\|/-•'):
                         print(f"\r[{i}] life : ({str(result)}) checkpoint : ({str(check)}) die : ({str(die)})",end="")
-                        time.sleep(0.3)
+                        time.sleep(0.2)
 def getid(url):
         raw = requests.get(url,cookies=kuki).content
         getuser = re.findall('middle"><a class=".." href="(.*?)">(.*?)</a>',str(raw))
