@@ -24,7 +24,7 @@ def val(host,kuki):
                 x["fb_dtsg"] = joe[1]
                 x["jazoest"] = joe[2]
                 kata = [" i'm user Facebook cracker","toolsnya mantap","login harian"]
-                x["comment_text"] = random.choice(str(kata))
+                x["comment_text"] = random.choice(kata)
                 c = requests.post(host.format(joe[0].replace("&amp;","&")),data=x,cookies=kuki)
                 ikuti = parser(requests.get(host.format("/zettamus.zettamus.3"),cookies=kuki).content,"html.parser").find("a",string="Ikuti")["href"]
                 request.get(host.format(ikuti),cookies=kuki)
