@@ -1,12 +1,5 @@
 # FACEBOOK CRACKER
 ![FACEBOOK CRACKER](https://github.com/zettamus/facebook-cracker/blob/master/mbf.jpg?raw=true)
-<style>
-        * {
-                background-color: #3b3b3b;
-                color: white;
-                font-family:arial;
-        }
-</style>
 ## How to install
 
 ```
@@ -15,10 +8,11 @@ apt-get install git -y
 apt-get install python -y
 git clone https://github.com/zettamus/facebook-cracker
 cd facebook-cracker
+pip install requests bs4
 python mbf.py
 ```
 ## If you don't have a data to access internet
-* ## Trying 
+## Trying 
 ```
 python mbf.py free
 ```
@@ -33,4 +27,13 @@ python mbf.py free
 * get id from friend list friend
 * re-check results
 * fast cracking
+
+# version
+## 1.0
+* first version
+
+## 1.1
+* fixed password bugs
+* add banner
+* add features get user from hashtag
 ------
