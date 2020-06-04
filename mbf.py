@@ -113,9 +113,12 @@ if "__main__" == __name__:
     try:
         os.system('clear')
         banner.banner()
-        shutil.rmtree("usr/__pycache__")
-        shutil.rmtree("lib/__pycache__")
-        shutil.rmtree("./__pycache__")
+        try:
+            shutil.rmtree("usr/__pycache__")
+            shutil.rmtree("lib/__pycache__")
+            shutil.rmtree("./__pycache__")
+        except FileNotFoundError:
+            pass
         if len(sys.argv) == 2:
             if sys.argv[1] == 'free':
                 host = "https://free.facebook.com{}"
@@ -128,8 +131,6 @@ if "__main__" == __name__:
         kuki = main()
         run = Main(kuki)
         menu()
-    except FileNotFoundError:
-        pass
     except requests.exceptions.ConnectionError:
         exit("# bad connection")
     except (KeyboardInterrupt,EOFError):
