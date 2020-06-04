@@ -73,6 +73,7 @@ def menu():
     elif zet == '6':
         query = input("# Hashtag : ")
         username = run.hashtag("/hashtag/"+query)
+        print()
         if len(username) == 0:
             exit("# no results")
         start.sorting(username)
