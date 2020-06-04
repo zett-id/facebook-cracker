@@ -75,7 +75,7 @@ def menu():
         username = run.hashtag("/hashtag/"+query)
         if len(username) == 0:
             exit("# no results")
-        start.sortin(username)
+        start.sorting(username)
     elif zet == '7':
         r = open("results-check.txt").read().strip()
         c = open("results-life.txt").read().strip()
