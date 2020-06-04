@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 # Author : zettamus
 # Github : Zettamus
-# Facebook : fb.me/zettamus.zettamus.3
+# Facebook : fb.me/zettid.1
 # Telegram : t.me/zettamus
 # recode?, include the source!!
 import re
 import os
 import sys
+import shutil
 import requests
 from lib import Main
 from getpass import getpass
@@ -39,7 +40,10 @@ def menu():
         else:
             exit("# url invalid")
         like = run.parser.get(url)
-        react = re.findall('href="(/ufi.*?)"',str(like))[0]
+        try:
+            react = re.findall('href="(/ufi.*?)"',str(like))[0]
+        except IndexError:
+            exit("# invalid")
         users = run.likes(react)
         print()
         start.sorting(users)
@@ -84,7 +88,8 @@ def menu():
 def cek():
     os.system('clear')
     banner.banner()
-    print("> How to get cookie : https://m.facebook.com/story.php?story_fbid=240261960743816&id=100042800416881")
+    print("> How to get cookie : ")
+    print("https://m.facebook.com/story.php?story_fbid=240261960743816&id=100042800416881")
     print()
     cookie = input("> Enter your cookie : ")
     if login.val(host, cookie):
@@ -95,8 +100,6 @@ def cek():
         getpass("# cookie wrong")
         cek()
 def main():
-    os.system('clear')
-    banner.banner()
     try:
         cookies = open("usr/cookies").read()
         if login.val(host, cookies):
@@ -108,6 +111,11 @@ def main():
         return cek()
 if "__main__" == __name__:
     try:
+        os.system('clear')
+        banner.banner()
+        shutil.rmtree("usr/__pycache__")
+        shutil.rmtree("lib/__pycache__")
+        shutil.rmtree("./__pycache__")
         if len(sys.argv) == 2:
             if sys.argv[1] == 'free':
                 host = "https://free.facebook.com{}"
@@ -116,10 +124,12 @@ if "__main__" == __name__:
                 exit("# Use <python3 mbf.py free> for free data")
         else:
             os.system("git pull")
-            host = "https://mbasic.facebook.com"
+            host = "https://mbasic.facebook.com{}"
         kuki = main()
         run = Main(kuki)
         menu()
+    except FileNotFoundError:
+        pass
     except requests.exceptions.ConnectionError:
         exit("# bad connection")
     except (KeyboardInterrupt,EOFError):
