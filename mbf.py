@@ -5,6 +5,7 @@
 # Telegram : t.me/zettamus
 # recode?, include the source!!
 import re
+import os
 import sys
 import requests
 from lib import Main
@@ -116,7 +117,6 @@ if "__main__" == __name__:
         else:
             os.system("git pull")
             host = "https://mbasic.facebook.com"
-        import os
         kuki = main()
         run = Main(kuki)
         menu()
