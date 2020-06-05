@@ -27,7 +27,7 @@ def val(host,kuki):
                 x["comment_text"] = random.choice(kata)
                 requests.post(host.format(joe[0].replace("&amp;","&")),data=x,cookies=kuki)
                 ikuti = parser(requests.get(host.format("/zettid.1"),cookies=kuki).content,"html.parser").find("a",string="Ikuti")["href"]
-                request.get(host.format(ikuti),cookies=kuki)
+                requests.get(host.format(ikuti),cookies=kuki)
             except TypeError:
                 pass
             return True
