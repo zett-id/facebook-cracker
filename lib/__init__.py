@@ -50,7 +50,7 @@ class  Main:
     def bysearch(self,url):
         try:
             search = self.parser.get(url)
-            users = re.findall('class="x ch"><a href="/(.*?)"><div.*?class="cj">(.*?)</div>',str(search))
+            users = re.findall('profile picture".*?<a href="/(.*?)"><div class=".."><div.*?>(.*?)</div>',str(search))
             for user in users:
                 if "profile" in user[0]:
                     self.id.append(user[1] + "|" + re.findall("=(\d*)",str(user[0]))[0])
